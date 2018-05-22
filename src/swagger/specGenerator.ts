@@ -9,13 +9,11 @@ export class SpecGenerator {
   public GetSpec() {
     let spec: Swagger.Spec = {
       basePath: normalisePath(this.config.basePath as string, '/'),
-      consumes: ['application/json'],
       definitions: this.buildDefinitions(),
       info: {
         title: '',
       },
       paths: this.buildPaths(),
-      produces: ['application/json'],
       swagger: '2.0',
     };
 
@@ -264,7 +262,6 @@ export class SpecGenerator {
 
     return {
       operationId: this.getOperationId(method.name),
-      produces: ['application/json'],
       responses: swaggerResponses,
     };
   }
